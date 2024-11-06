@@ -14,29 +14,23 @@
  * }
  */
 class Solution {
+
     boolean ans=true;
 
     int helper(TreeNode root){
         if(root==null){
             return 0;
         }
-
         int left=helper(root.left);
         int right=helper(root.right);
 
         if(Math.abs(left-right)>1){
             ans=false;
         }
-
-        return 1+Math.max(left,right);
+        return 1+Math.max(left, right);
     }
     public boolean isBalanced(TreeNode root) {
-        
-
-       helper(root);
-
-       return ans;
-
-
+        helper(root);
+        return ans;
     }
 }
