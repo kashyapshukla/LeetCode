@@ -14,25 +14,26 @@
  * }
  */
 class Solution {
-    int c=0;
 
-    void helper(TreeNode root,  int max){
+    int count=0;
+    public int goodNodes(TreeNode root) {
+
+        helper(root, root.val);
+        return count;
+    }
+
+    void helper(TreeNode root, int max){
         if(root==null){
-            return ;
+            return;
         }
 
+
         if(root.val>=max){
-            c++;
+            count++;
             max=Math.max(root.val, max);
         }
 
         helper(root.left, max);
         helper(root.right, max);
-    }
-
-    public int goodNodes(TreeNode root) {
-        
-        helper(root, root.val);
-        return c;
     }
 }
